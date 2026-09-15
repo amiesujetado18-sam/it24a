@@ -41,6 +41,10 @@ function addTaskItem(taskText){
     // Call createDoneButton() function
     const doneBtn = createDoneButton(li);
     li.appendChild(doneBtn);
+
+    //call createdEditButton() function
+    const editBtn = createEditButton(li);
+    li.appendChild(editBtn);
 }
 function createDoneButton(li){
     const doneBtn = document.createElement("button");
@@ -60,6 +64,25 @@ function createDoneButton(li){
     }
 
     return doneBtn;
+}
+function createEditButton(li,taskSpan){
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.style.marginLeft="8px";
+    editBtn.onclick = () => handleEditClick(li);
+    return editBtn;
+}
+
+function handleEditClick(li){
+    const currentText = li.firstChild.textContent.trim();
+    const newText = prompt("Edit your task", currentText);
+
+    if(newText !==null && newText.trim() !==""){
+        li.firstChild.textContent = newText.trim();
+        alert("Updated task");
+    }else{
+        alert("No changes made");
+    }
 }
    </script>
 
