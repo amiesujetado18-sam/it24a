@@ -3,41 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Web Application</title>
 </head>
 <body>
-    <h1>Todo List</h1>
-   <input type="text"
-            id="taskInput"
-            placeholder="Add a task"
-   />
-   <button onclick="addTask()">Add Task</button>
-   <ul id="taskList">Your task go here ...</ul>
 
- <script>
+    <h1>My Web Application</h1>
 
-function getTaskTest(){
-    const input = document.getElementById("taskInput");
-    const text = input.value.trim();
+    <ul>
+        <li>
+            <a href="weather-forecast.html">Weather Forecast</a>
+        </li>
+    </ul>
 
-    console.log("The Input value is: " + input.value);
-    return text;
-}
-
-function addTask(){
-    const taskText = getTaskTest();
-    addTaskItem(taskText);
-
-}
-
-function addTaskItem(taskText){
-    const li = document.createElement("li");
-    const taskSpan = document.createElement("span");
-    taskSpan.textContent = taskText;
-    li.appendChild(taskSpan);
-
-    document.getElementById("taskList").appendChild(li)
-}
-   </script>
 </body>
 </html>
