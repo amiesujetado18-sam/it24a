@@ -24,7 +24,7 @@
 
     <script>
 
-    const apiKey = "YOUR_API_KEY";
+    const apiKey = "6e28c317c5b6d5e2f0b774b0957aead8";
 
     async function getWeather() {
 
@@ -58,6 +58,43 @@
         alert("Error: " + error.message);
 
     }
+}
+
+function getGPSLocation() {
+
+    if (!navigator.geolocation) {
+        alert("Geolocation is not supported by your browser.");
+        return;
+    }
+
+    document.getElementById("locationResult").innerHTML =
+        "Getting your location...";
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            getWeatherByCoordinates(latitude, longitude);
+
+        },
+        function(error) {
+
+            document.getElementById("locationResult").innerHTML = "";
+
+            alert("GPS Error: " + error.message);
+
+        },
+
+        {
+            enableHighAccuracy: false,
+            timeout: 10000,
+            maximumAge: 60000
+        }
+
+    );
 }
 </script>
 
