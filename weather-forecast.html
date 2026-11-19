@@ -64,7 +64,7 @@ function getGPSLocation() {
 
     if (!navigator.geolocation) {
         alert("Geolocation is not supported by your browser.");
-        return;
+        return; 
     }
 
     document.getElementById("locationResult").innerHTML =
@@ -101,7 +101,6 @@ async function getWeatherByCoordinates(latitude, longitude) {
 
     try {
 
-        // Current Weather
         const weatherResponse = await fetch(weatherUrl);
 
         if (!weatherResponse.ok) {
@@ -130,7 +129,7 @@ async function getWeatherByCoordinates(latitude, longitude) {
             <p>Wind Speed: ${data.wind.speed} m/s</p>
 
         `;
-        // 5-Day Forecast
+       
         const forecastResponse = await fetch(forecastUrl);
 
         if (!forecastResponse.ok) {
@@ -146,7 +145,7 @@ async function getWeatherByCoordinates(latitude, longitude) {
             <h2>5-Day Weather Forecast</h2>
         `;
 
-        // Display forecast every 24 hours
+       
         forecastData.list
             .filter(item => item.dt_txt.includes("12:00:00"))
             .forEach(item => {
